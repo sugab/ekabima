@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530093352) do
+ActiveRecord::Schema.define(version: 20160601115942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 20160530093352) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "contents", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "file_path"
+    t.text     "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "contents", ["order_id"], name: "index_contents_on_order_id", using: :btree
+
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -66,6 +76,23 @@ ActiveRecord::Schema.define(version: 20160530093352) do
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "status"
+    t.string   "domain"
+    t.string   "cpanel_username"
+    t.string   "cpanel_password"
+    t.string   "wordpress_username"
+    t.string   "wordpress_password"
+    t.string   "g4np_email"
+    t.string   "g4np_password"
+    t.text     "note"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "products", ["order_id"], name: "index_products_on_order_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -85,5 +112,7 @@ ActiveRecord::Schema.define(version: 20160530093352) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "contents", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "orders"
 end
