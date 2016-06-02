@@ -1,17 +1,41 @@
 ActiveAdmin.register Order do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
 permit_params :user_id, :name, :phone, :school_name, :school_phone, :school_address, :province, :city, :school_domain_name, :requirement_file_path, :status
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
 
+index do
+  selectable_column
+  column :name
+  column :phone
+  column :school_name
+  column :school_phone
+  column :school_address
+  actions
+end
+
+form do |f|
+  f.semantic_errors
+
+  f.inputs except: [:requirement_file_path]
+
+  f.inputs "Attachment", multipart: true do
+    f.input :requirement_file_path, as: :file, hint: f.order.requirement_file_path? ? link_to(f.order.requirement_file_path, f.order.requirement_file_path.url) : content_tag(:span, "Upload requirement file")
+  end
+
+  f.actions
+end
+
+show do
+  attributes_table do
+    default_attribute_table_rows.each do |field|
+      if field != :requirement_file_path
+        row field
+      end
+    end
+
+    row :requirement_file_path do
+      link_to(order.requirement_file_path, order.requirement_file_path.url)
+    end
+  end
+end
 
 end

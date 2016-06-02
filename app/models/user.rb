@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :order
+
+  def display_name
+    email
+  end
+
 end
