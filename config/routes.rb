@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'dashboards/index'
+
+  get 'dashboard', to: "dashboard#index"
+  get 'dashboard/register', to: "dashboard#register"
+  get 'dashboard/upload', to: "dashboard#upload"
 
   get 'welcome/index'
 

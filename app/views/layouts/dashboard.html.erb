@@ -21,19 +21,13 @@
             <%= image_tag("logo.png", class: "logo") %></a>
           </li>
           <li class="sidebar-active">
-            <a href="index.html">
-              <i class="fa fa-home list" aria-hidden="true"></i>
-              Beranda</a>
+            <%= link_to( icon("home", "Beranda", class: "list"), dashboard_path) %>
           </li>
           <li>
-            <a href="pendaftaran.html">
-              <i class="fa fa-pencil-square-o list" aria-hidden="true"></i>
-              Pendaftaran</a>
+            <%= link_to( icon("pencil-square-o", "Pendaftaran", class: "list"), dashboard_register_path) %>
           </li>
           <li>
-            <a href="unggah.html">
-              <i class="fa fa-file-text-o list" aria-hidden="true"></i>
-              Unggah Berkas</a>
+            <%= link_to( icon("file-text-o", "Unggah Berkas", class: "list"), dashboard_upload_path) %>
           </li>
           <li>
             <a href="status.html">
@@ -57,13 +51,13 @@
                 <a href="#" class="dropdown-toggle top-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <span id="username">
-                    Username
+                    <%= current_user.email %>
                   </span>
                   <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="login.html">Logout</a>
+                    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
                   </li>
                 </ul>
               </li>
@@ -72,6 +66,10 @@
         </nav>
         <div class="container-fluid">
           <div class="main-container">
+
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+
             <%= yield %>
           </div>
         </div>
