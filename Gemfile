@@ -30,6 +30,9 @@ gem 'devise', '~> 3.2'
 # Use bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 
+# User FA
+gem 'font-awesome-sass', '~> 4.6.2'
+
 # Use carrierwave
 gem 'carrierwave'
 
