@@ -29,10 +29,10 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to dashboard_register_path, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { redirect_to dashboard_register_path }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

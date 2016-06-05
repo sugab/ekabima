@@ -6,10 +6,15 @@ class DashboardController < ApplicationController
   end
 
   def register
-    @order = current_user.order
+    @order = current_user.order || current_user.create_order
   end
 
   def upload
+    @content = current_user.order.content || current_user.order.create_content
+  end
+
+  def status
+    @user = current_user
   end
 
 end

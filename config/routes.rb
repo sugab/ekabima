@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   get 'dashboard', to: "dashboard#index"
   get 'dashboard/register', to: "dashboard#register"
   get 'dashboard/upload', to: "dashboard#upload"
+  get 'dashboard/status', to: "dashboard#status"
 
   get 'welcome/index'
 
   resources :orders
+  resources :contents
 
   devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config

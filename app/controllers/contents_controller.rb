@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /contents
   # GET /contents.json
@@ -28,10 +29,10 @@ class ContentsController < ApplicationController
 
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
+        format.html { redirect_to dashboard_upload_path, notice: 'Content was successfully created.' }
         format.json { render :show, status: :created, location: @content }
       else
-        format.html { render :new }
+        format.html { redirect_to dashboard_upload_path }
         format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +43,10 @@ class ContentsController < ApplicationController
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to dashboard_upload_path, notice: 'Content was successfully updated.' }
         format.json { render :show, status: :ok, location: @content }
       else
-        format.html { render :edit }
+        format.html { redirect_to dashboard_upload_path }
         format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
