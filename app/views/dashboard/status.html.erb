@@ -1,10 +1,10 @@
 <h1>Status</h1>
 <div class="row text-center">
   <div class="col-md-4">
-    <div class="status-box success">
+    <div class="status-box <%= @order.any_empty? ? "success" : "" %>">
     <li class="fa fa-check fa-5x" aria-hidden="true"></li>
   </div>
-  <h4>Pendaftaran</h4>
+  <h4>Pendaftaran &amp; Persyaratan</h4>
   <div class="form-group status-group">
     <h5>Akun Wordpress</h5>
     <input type="text" class="form-control status-form" placeholder="Username">
@@ -12,7 +12,7 @@
   </div>
 </div>
 <div class="col-md-4">
-  <div class="status-box">
+  <div class="status-box <%= @order.content.file_path? ? "success" : "" %>">
     <li class="fa fa-check fa-5x" aria-hidden="true"></li>
   </div>
   <h4>Unggah Berkas</h4>

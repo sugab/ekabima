@@ -15,6 +15,7 @@ class DashboardController < ApplicationController
 
   def status
     @user = current_user
+    @order = @user.order
   end
 
 end

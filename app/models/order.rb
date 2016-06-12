@@ -1,4 +1,6 @@
 class Order < ActiveRecord::Base
+  include EmptyDetection
+
   belongs_to :user
   has_one :product
   has_one :content
