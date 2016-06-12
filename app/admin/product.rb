@@ -1,17 +1,5 @@
 ActiveAdmin.register Product do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
-
+permit_params :order_id, :status, :domain, :cpanel_username, :cpanel_password, :wordpress_username, :wordpress_password, :g4np_email, :g4np_password, :note
 
 end

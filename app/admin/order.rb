@@ -32,10 +32,27 @@ show do
       end
     end
 
-    row :requirement_file_path do
+    row :requirement_file do
       link_to(order.requirement_file_path, order.requirement_file_path.url)
     end
   end
+
+  attributes_table do
+    row :content_file do
+      link_to(order.content.file_path, order.content.file_path.url)
+    end
+
+    row :content_note do
+      order.content.note
+    end
+  end
+
+  attributes_table do
+    row :product_detail do
+      order.product
+    end
+  end
+
 end
 
 end
