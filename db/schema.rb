@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612125057) do
+ActiveRecord::Schema.define(version: 20160614093355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,17 @@ ActiveRecord::Schema.define(version: 20160612125057) do
   end
 
   add_index "contents", ["order_id"], name: "index_contents_on_order_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "messages", ["order_id"], name: "index_messages_on_order_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
@@ -112,6 +123,8 @@ ActiveRecord::Schema.define(version: 20160612125057) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "contents", "orders"
+  add_foreign_key "messages", "orders"
+  add_foreign_key "messages", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "orders"
 end

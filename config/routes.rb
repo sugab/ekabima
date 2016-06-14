@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :messages
   get 'dashboard', to: "dashboard#index"
   get 'dashboard/register', to: "dashboard#register"
   get 'dashboard/upload', to: "dashboard#upload"
