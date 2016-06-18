@@ -36,6 +36,9 @@ gem 'font-awesome-sass', '~> 4.6.2'
 # Use carrierwave
 gem 'carrierwave'
 
+# Heroku
+gem 'rails_12factor'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,6 +51,7 @@ gem 'carrierwave'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'seed_dump'
 end
 
 group :development do
