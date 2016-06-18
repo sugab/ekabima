@@ -345,6 +345,25 @@ body {
   color: #37ab5a;
 }
 
+.message {
+  text-align: left;
+}
+
+.message .title {
+  color: #4183D7;
+}
+
+.message .content {
+  padding: 10px 0;
+}
+
+.message .mine {
+  text-align: right;
+}
+
+.message-form {
+  text-align: left;
+}
 
 @media(min-width:768px) {
     #wrapper {

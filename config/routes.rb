@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  resources :orders
+  resources :orders do
+    resources :messages
+  end
+
   resources :contents
 
   devise_for :users
