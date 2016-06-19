@@ -1,6 +1,8 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin_user!
+  
+  before_action :authenticate_admin_user!, except: [:create]
+  before_action :authenticate_user!, only: [:create]
 
   # GET /messages
   # GET /messages.json
