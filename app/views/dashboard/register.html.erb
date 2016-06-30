@@ -1,56 +1,72 @@
 <h1>My Order</h1>
 
 <%= form_for(@order, html: {class: "form-horizontal"}) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<% if @order.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@order.errors.count, "error") %>
+    prohibited this order from being saved:</h2>
 
-      <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @order.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :school_name %><br>
-    <%= f.text_field :school_name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :school_phone %><br>
-    <%= f.text_field :school_phone, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :school_address %><br>
-    <%= f.text_area :school_address, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :province %><br>
-    <%= f.text_field :province, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :city %><br>
-    <%= f.text_field :city, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :school_domain_name %><br>
-    <%= f.text_field :school_domain_name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :requirement_file_path %><br>
-    <%= f.file_field :requirement_file_path %>
-    <%= f.object.requirement_file_path? ? link_to(f.object.requirement_file_path, f.object.requirement_file_path.url) : content_tag(:span, "Upload requirement file") %>
-  </div>
-  <div class="form-group btn-position">
-    <%= f.submit "Save", class: "btn btn-success" %>
-  </div>
+<div class="form-group">
+  <%= f.label :name %><br>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :phone %><br>
+  <%= f.text_field :phone, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :school_name %><br>
+  <%= f.text_field :school_name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :school_phone %><br>
+  <%= f.text_field :school_phone, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :school_address %><br>
+  <%= f.text_area :school_address, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :province %><br>
+  <%= f.text_field :province, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :city %><br>
+  <%= f.text_field :city, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :school_domain_name %><br>
+  <%= f.text_field :school_domain_name, class: "form-control" %>
+  <span>Alamat website yang nantinya akan dibuatkan</span>
+</div>
+<div class="form-group">
+  <%= f.label :requirement_file_path %><br>
+  <%= f.file_field :requirement_file_path %>
+  <%= f.object.requirement_file_path? ? link_to(f.object.requirement_file_path, f.object.requirement_file_path.url) : content_tag(:span, "Upload requirement file") %>
+  <p>
+    Berkas merupakan syarat wajib, adapun berkas yang dibutuhkan :
+    <br>
+    1) Kartu/Surat Identitas Penanggung Jawab yang masih berlaku (contoh: KTP/SIM/Passport)
+    <br>
+    2) Surat Permohonan Kepala Sekolah (Surat ini berisi mengenai permohonan pendaftaran domain *.sch.id yang ditujukan kepada Registrar (IDCloudHost) dan ditandatangai oleh Kepala Sekolah)
+    <br>
+    3) Surat Kuasa (surat yang pernyataan/menerangkan bahwa Kepala Sekolah memberikan kuasa kepada seseorang yang mendaftarkan domainnya untuk sekolah tersebut)
+    <br>
+    4) Dokumen surat ijin penyelenggaraan sekolah dari dinas terkait (Depdiknas)
+    <br>
+
+    Berkas di SCAN, dan disatukan dalam satu File ZIP/RAR.
+  </p>
+</div>
+<div class="form-group btn-position">
+  <%= f.submit "Save", class: "btn btn-success" %>
+</div>
 <% end %>

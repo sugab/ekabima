@@ -15,7 +15,8 @@ class DashboardController < ApplicationController
 
   def status
     @user = current_user
-    @order = @user.order
+    @order = current_user.order || current_user.create_order
+    @product = @order.product || @order.create_product
   end
 
 end
