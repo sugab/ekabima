@@ -36,3 +36,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
+  host: localhost
+  username: ekabima
+  password: ekabima
+  database: ekabima_production
