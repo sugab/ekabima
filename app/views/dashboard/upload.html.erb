@@ -1,4 +1,4 @@
-<h1>Upload Content</h1>
+<h1>Upload Berkas Konten Website</h1>
 
 <%= form_for(@content) do |f| %>
 <% if @content.errors.any? %>
@@ -41,13 +41,13 @@
 </p>
 
 <p>
-Konten tersebut disatukan dalam bentuk .ZIP/.RAR. Kemudian di upload pada form berikut :
+<b>Konten tersebut disatukan dalam bentuk .ZIP/.RAR. Kemudian di upload pada form berikut :</b>
 </p>
 
 <div class="form-group">
-<%= f.label :file_path %><br>
+<%= f.label :berkas_konten_website %><br>
 <%= f.file_field :file_path %>
-<%= f.object.file_path? ? link_to(f.object.file_path, f.object.file_path.url) : content_tag(:span, "Upload file") %>
+<%= f.object.file_path? ? link_to(f.object.file_path, f.object.file_path.url) : content_tag(:span, "Upload Berkas Konten Website") %>
 </div>
 <div class="form-group">
 <%= f.label :note %><br>

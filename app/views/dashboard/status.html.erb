@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div class="status-box <%= @order.content ? " success" : " " %>">
+    <div class="status-box <%= @content.file_path.blank? ? "" : " success" %>">
       <li class="fa fa-check fa-5x" aria-hidden="true"></li>
     </div>
     <h4>Unggah Berkas</h4>

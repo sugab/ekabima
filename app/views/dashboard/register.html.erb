@@ -15,55 +15,53 @@
 <% end %>
 
 <div class="form-group">
-  <%= f.label :name %><br>
+  <%= f.label :nama %><br>
   <%= f.text_field :name, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :phone %><br>
+  <%= f.label :nomor_telephone %><br>
   <%= f.text_field :phone, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :school_name %><br>
+  <%= f.label :nama_sekolah %><br>
   <%= f.text_field :school_name, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :school_phone %><br>
+  <%= f.label :nomor_telephone_sekolah %><br>
   <%= f.text_field :school_phone, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :school_address %><br>
+  <%= f.label :alamat_sekolah %><br>
   <%= f.text_area :school_address, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :province %><br>
+  <%= f.label :provinsi %><br>
   <%= f.text_field :province, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :city %><br>
+  <%= f.label :kota %><br>
   <%= f.text_field :city, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :school_domain_name %><br>
+  <%= f.label :nama_domain_sekolah %><br>
   <%= f.text_field :school_domain_name, class: "form-control" %>
   <span>Alamat website yang nantinya akan dibuatkan</span>
 </div>
 <div class="form-group">
-  <%= f.label :requirement_file_path %><br>
+  <%= f.label :berkas_persyaratan %><br>
   <%= f.file_field :requirement_file_path %>
-  <%= f.object.requirement_file_path? ? link_to(f.object.requirement_file_path, f.object.requirement_file_path.url) : content_tag(:span, "Upload requirement file") %>
+  <%= f.object.requirement_file_path? ? link_to(f.object.requirement_file_path, f.object.requirement_file_path.url) : content_tag(:span, "Upload berkas persyaratan") %>
   <p>
+    <br>
     Berkas merupakan syarat wajib, adapun berkas yang dibutuhkan :
-    <br>
-    1) Kartu/Surat Identitas Penanggung Jawab yang masih berlaku (contoh: KTP/SIM/Passport)
-    <br>
-    2) Surat Permohonan Kepala Sekolah (Surat ini berisi mengenai permohonan pendaftaran domain *.sch.id yang ditujukan kepada Registrar (IDCloudHost) dan ditandatangai oleh Kepala Sekolah)
-    <br>
-    3) Surat Kuasa (surat yang pernyataan/menerangkan bahwa Kepala Sekolah memberikan kuasa kepada seseorang yang mendaftarkan domainnya untuk sekolah tersebut)
-    <br>
-    4) Dokumen surat ijin penyelenggaraan sekolah dari dinas terkait (Depdiknas)
-    <br>
+    <ol>
+      <li>Kartu/Surat Identitas Penanggung Jawab yang masih berlaku (contoh: KTP/SIM/Passport)</li>
+      <li>Surat Permohonan Kepala Sekolah (Surat ini berisi mengenai permohonan pendaftaran domain *.sch.id yang ditujukan kepada Registrar (IDCloudHost) dan ditandatangai oleh Kepala Sekolah)</li>
+      <li>Surat Kuasa (surat yang pernyataan/menerangkan bahwa Kepala Sekolah memberikan kuasa kepada seseorang yang mendaftarkan domainnya untuk sekolah tersebut)</li>
+      <li>Dokumen surat ijin penyelenggaraan sekolah dari dinas terkait (Depdiknas)</li>
+    </ol>
 
-    Berkas di SCAN, dan disatukan dalam satu File ZIP/RAR.
+    <b>Berkas di SCAN, dan disatukan dalam satu File ZIP/RAR.</b>
   </p>
 </div>
 <div class="form-group btn-position">

@@ -17,6 +17,7 @@ class DashboardController < ApplicationController
     @user = current_user
     @order = current_user.order || current_user.create_order
     @product = @order.product || @order.create_product
+    @content = @order.content || @order.create_content
   end
 
 end
