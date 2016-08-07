@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   get 'dashboard/upload', to: "dashboard#upload"
   get 'dashboard/status', to: "dashboard#status"
 
-  get 'welcome/index'
-
   resources :orders do
     resources :messages
   end
